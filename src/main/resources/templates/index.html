@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Witaj w aplikacji Twitter</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+
+<h1 align="center">Witaj w aplikacji twitter <input disabled th:value="${login}"> </h1>
+
+<form action="/users">
+    <button class="btn btn-info" type="submit">Pokaż użytkowników</button>
+</form>
+<p style="line-height: 1cm"></p>
+<!-- <form action="/adduser">
+    <button class="btn btn-primary" type="submit">Dodaj użytkownika</button>
+</form> -->
+<p style="line-height: 1cm"></p>
+<form action="/finduser">
+    <button class="btn btn-info" type="submit">Znajdz użytkownika</button>
+</form>
+</body>
+</html>

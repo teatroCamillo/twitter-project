@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Znajdź użytkownika:</title>
+</head>
+<body>
+<h1>Znajdź użytkownika znając jego nazwisko:</h1>
+<form th:action="@{/finduserbylastname}" method="get" th:object="${finduser}">
+    <label for="inputLastName">Podaj nazwisko:</label>
+    <input type="text" id="inputLastName" name="lastName">
+    <button type="submit">Szukaj</button>
+</form>
+<div>
+    <h4 style="line-height: 1cm"></h4>
+<form th:action="@{/index}">
+    <button type="submit">Powrót</button>
+</form>
+</div>
+</body>
+</html>
