@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona logowania:</title>
-    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
+<!--    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>-->
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
 </head>
 <body>
-<h1 align="center">Logowanie do aplikacji Twitter:</h1>
-<div align="center">
-<form th:action="@{/login-page}" method="post">
-    <table align="center">
-        <tr>
-            <td><label for="inputLogin"><b>Login:</b></label></td>
-            <td><input type="text" name="login" id="inputLogin" placeholder="Login"/></td>
-        </tr>
-        <tr>
-            <td><label for="inputPassword"><b>Password:</b></label></td>
-            <td><input type="password" id="inputPassword" name="password" placeholder="Password"/></td>
-        </tr>
-    </table>
-    <p style="line-height: 1cm"></p>
-    <button class="btn btn-lg btn-success" type="submit">Zaloguj się</button>
-</form>
-</div>
+<main>
+    <h1 align="center">Logowanie do aplikacji Twitter:</h1>
+    <div align="center">
+        <form th:action="@{/login-page}" method="post">
+            <table align="center">
+                <tr>
+                    <td><label for="inputLogin"><b>Login:</b></label></td>
+                    <td><input type="text" name="login" id="inputLogin" placeholder="Login"/></td>
+                </tr>
+                <tr>
+                    <td><label for="inputPassword"><b>Password:</b></label></td>
+                    <td><input type="password" id="inputPassword" name="password" placeholder="Password"/></td>
+                </tr>
+            </table>
+            <p style="line-height: 1cm"></p>
+            <button class="btn btn-lg btn-success" type="submit">Zaloguj się</button>
+        </form>
+    </div>
+</main>
 </body>
 </html>

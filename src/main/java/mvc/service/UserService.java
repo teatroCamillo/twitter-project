@@ -7,11 +7,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
 
@@ -26,13 +27,10 @@ public class UserService {
 //    }
 
     public List<UserDTO> getAllUsers(){
-        return userRepository
-                .findAll()
-                .stream()
+        return userRepository.findAll().stream()
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
-
 
     public List<UserDTO> findUserByLastName(String lastName){
         return userRepository
@@ -42,4 +40,13 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public Optional<UserDTO> getUserById(Integer id){
+        return userRepository.findById(id)
+                .map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
+    public User create(UserDTO userDTO){
+        User user = modelMapper.map(userDTO, User.class);
+        return userRepository.save(user);
+    }
 }
