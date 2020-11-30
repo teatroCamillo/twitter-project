@@ -5,11 +5,7 @@ import mvc.model.Role;
 import javax.persistence.*;
 
 @Entity
-<<<<<<< HEAD
-@Table(name="user")
-=======
 @Table(name = "users")
->>>>>>> Added controllers & resources.
 public class User {
 
     @Id
