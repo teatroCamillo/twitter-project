@@ -1,0 +1,13 @@
+h1{
+    font-weight: bold;
+    background-color: azure;
+}
+
+p {
+    font-style: italic;
+}
+
+tr {
+    font-weight: bold;
+    background-color: lightgreen;
+}
