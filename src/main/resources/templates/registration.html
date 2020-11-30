@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Sign Up</title>
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+</head>
+<body>
+<main>
+    <h2>Sign Up to Twitter</h2>
+    <div style="height: 20px;"></div>
+    <!--/*@thymesVar id="user" type="mvc.model.dto.UserDTO"*/-->
+    <form method="post" th:action="@{/registration}" th:object="${user}" >
+        <h3>Create your account</h3>
+        <label>Username
+            <input type="text" th:field="*{login}" required/>
+        </label>
+        <label>Name
+            <input type="text" th:field="*{firstName}" required/>
+        </label>
+        <label>Last name
+            <input type="text" th:field="*{lastName}" required/>
+        </label>
+        <label>Mail
+            <input type="email" th:field="*{mail}" required/>
+        </label>
+        <label>Password
+            <input type="password" th:field="*{password}" required/>
+        </label>
+        <label>Date of birth
+            <input type="text" th:field="*{birthDate}" />
+        </label>
+        <button type="submit">Accept</button>
+        <button type="reset">Reset</button>
+    </form>
+</main>
+</body>
+</html>
