@@ -1,8 +1,10 @@
 package mvc.model.entity;
 
 import mvc.model.Role;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
@@ -23,7 +25,7 @@ public class User {
     @Column(name="password")
     private String password;
     @Column(name="birth_date")
-    private String birthDate;
+    private LocalDate birthDate;
     @Column(name="role")
     private Role role;
 
@@ -75,11 +77,11 @@ public class User {
         this.password = password;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
