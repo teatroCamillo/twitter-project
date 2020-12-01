@@ -18,9 +18,4 @@ public class IndexController {
                 authentication.getName() + " " + authentication.getAuthorities());
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
 }
