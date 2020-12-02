@@ -27,4 +27,5 @@ public class RegistrationController {
         userService.create(userDTO);
         return "login";
     }
+
 }
