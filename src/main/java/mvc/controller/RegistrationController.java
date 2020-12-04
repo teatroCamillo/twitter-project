@@ -25,6 +25,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     String addUser(@ModelAttribute UserDTO userDTO){
         userService.create(userDTO);
-        return "login";
+        return "successful-registration";
     }
+
 }

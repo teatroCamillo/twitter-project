@@ -32,7 +32,8 @@
             <input type="date" th:field="*{birthDate}" />
         </label>
         <button type="submit">Accept</button>
-        <button type="reset">Reset</button>
+        <button type="reset">Reset</button><br/>
+        <span>Already registered?<a th:href="@{/login}">Sign in here</a></span>
     </form>
 </main>
 </body>
