@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
@@ -23,14 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests()
-                .antMatchers(HttpMethod.GET,
-                        "/",
-                        "/index",
-                        "/index/**",
-                        "/adduser",
-                        "/adduser/**")
-                .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/", "/index/")
+                    .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .antMatchers(HttpMethod.DELETE, "users")
+                    .hasAnyAuthority("ADMIN")
                 .anyRequest().permitAll()
                 .and()
                     .csrf().disable()
@@ -52,6 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password(passwordEncoder.encode("test")).roles("USER");
+
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password(passwordEncoder.encode("test")).roles("ADMIN");
 
         auth.jdbcAuthentication()
                 .usersByUsernameQuery("SELECT U.LOGIN, U.PASSWORD, 1 FROM USERS U WHERE U.LOGIN=?")

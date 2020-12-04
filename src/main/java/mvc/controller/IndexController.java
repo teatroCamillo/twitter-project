@@ -18,4 +18,5 @@ public class IndexController {
                 authentication.getName() + " " + authentication.getAuthorities());
     }
 
+
 }
