@@ -1,21 +1,9 @@
-h1{
-    font-weight: bold;
-    background-color: azure;
+body{
+    background-color: rgb(21,32,43);
+    color: white;
 }
 
-p {
-    font-style: italic;
-}
-
-tr {
-    font-weight: bold;
-    background-color: lightgreen;
-}
-
-#left{
-
-}
-
-#right{
-
+.left{
+    width: 952px;
+    height: 888px;
 }
