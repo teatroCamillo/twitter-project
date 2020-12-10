@@ -12,10 +12,23 @@
 <body >
     <main>
         <div>
-            <div class="left" th:style="|background-image:url(@{/images/orgTwi.png});|">
+            <div class="left" th:style="|background-image:url(@{/images/orgTwi.png});|"></div>
+            <div class="right">
+                <form>
+                    <div class="login-field-start">
+                        <label class="login-label">Phone, email or username</label>
+                        <input type="text">
+                    </div>
+                    <div class="login-field-start">
+                        <label class="login-label">Password</label>
+                        <input type="password">
+                    </div>
+                    <input type="submit">
+                    <div style="clear:both;"></div>
 
+                </form>
             </div>
-
+            <div style="clear:both;"></div>
         </div>
     </main>
 </body>
