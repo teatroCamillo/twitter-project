@@ -2,6 +2,7 @@ body{
     background-color: #15202c;
     color: white;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 .left{
@@ -51,6 +52,28 @@ input[type=password]{
     color: white;
     font-size: 22px;
     font-weight: 300;
+}
+
+.in-sub{
+    height: 51px;
+    width: 70px;
+    float: left;
+    padding-top: 6px;
+}
+
+input[type=submit]{
+    color: #008abe;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #008abe;
+    border-radius: 20px;
+    width: 70px;
+    height: 40px;
+}
+
+input[type=submit]:hover{
+    background-color: #213248;
 }
 
 
