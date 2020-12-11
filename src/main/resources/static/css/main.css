@@ -1,6 +1,7 @@
 body{
     background-color: #15202c;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .left{
@@ -16,26 +17,42 @@ body{
     padding: 20px 0 0 100px;
 }
 
+.login-field-start{
+    background-color: #192734;
+    width: 200px;
+    height: 51px;
+    margin-right: 10px;
+    float: left;
+}
+
+
+.login-label{
+    color: dimgrey;
+    height: 46px;
+    margin-left: 0px;
+    margin-top: 5px;
+    display: block;
+    border-bottom: darkgray solid 3px;
+    padding-left: 9px;
+}
+
+.login-label:focus-within{
+    border-bottom: #008abe solid 3px;
+    color: #008abe;
+}
+
 input[type=text],
 input[type=password]{
-    width: 150px;
-    margin: 5px;
+    width: 180px;
+    margin-left: 0px;
     background-color: #192734;
     border: none;
     outline: none;
     color: white;
     font-size: 22px;
+    font-weight: 300;
 }
 
-.login-field-start{
-    background-color: #192734;
-    width: 180px;
-    height: 70px;
-    margin-right: 10px;
-    float: left;
-    border-bottom: darkgray solid 2px;
-}
 
-.login-label{
-    color: dimgrey;
-}
+
+
