@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/main.css" rel="stylesheet" >
-    <link href="images/logo.png" rel="stylesheet" >
+    <link href="css/fontello.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+
 
 </head>
 <body >
@@ -16,22 +17,40 @@
         <div>
             <div class="left" th:style="|background-image:url(@{/images/orgTwi.png});|"></div>
             <div class="right">
-                <form>
-                    <div class="login-field-start">
-                        <label class="login-label">Phone, email or username
-                            <input type="text">
-                        </label>
+                <section>
+                    <form>
+                        <div class="login-field-start">
+                            <label class="login-label">Phone, email or username
+                                <input type="text">
+                            </label>
+                        </div>
+                        <div class="login-field-start">
+                            <label class="login-label">Password
+                                <input type="password">
+                            </label>
+                        </div>
+                        <div class="in-sub">
+                            <input type="submit" value="Log in">
+                        </div>
+                        <div style="clear:both;"></div>
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </form>
+                </section>
+                <section>
+                    <div class="under-log">
+                        <div><i class="icon-twitter"></i></div>
+                        <div class="happen">
+                            <span>See what's happening in</span><br>
+                            <span>the world right now</span><br>
+                        </div>
+                        <div class="join-tw-today">
+                            <span>Join Twitter today.</span>
+                            <button class="button-on-start signup-button">Sign up</button>
+                            <button class="button-on-start login-button">Log in</button>
+                            <div style="clear:both;"></div>
+                        </div>
                     </div>
-                    <div class="login-field-start">
-                        <label class="login-label">Password
-                            <input type="password">
-                        </label>
-                    </div>
-                    <div class="in-sub">
-                        <input type="submit" value="Log in">
-                    </div>
-                    <div style="clear:both;"></div>
-                </form>
+                </section>
             </div>
             <div style="clear:both;"></div>
         </div>

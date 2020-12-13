@@ -57,12 +57,4 @@ public class SpringConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/**")
                 .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
     }
-
-//    //necessary to return image!
-//    @Override
-//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/static/**")
-//                .addResourceLocations("classpath:/image")
-//                .addResourceLocations("classpath:/css");
-//    }
 }

@@ -76,6 +76,64 @@ input[type=submit]:hover{
     background-color: #213248;
 }
 
+.under-log{
+    width: 70%;
+    margin-top: 200px;
+    margin-left: 0;
+    height: 200px;
+}
 
+.happen{
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.join-tw-today{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.button-on-start{
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #008abe;
+    border-radius: 20px;
+    width: 400px;
+    height: 40px;
+    text-align: center;
+}
+
+.forgot-pass{
+    text-decoration: none;
+    font-size: 13px;
+    color: #008abe;
+    margin-left: 217px;
+    letter-spacing: 1px;
+}
+
+.forgot-pass:hover{
+    text-decoration: underline ;
+}
+
+.signup-button{
+    color: #ffffff;
+    background-color: #008abe;
+}
+
+.login-button{
+    color: #008abe;
+}
+
+.signup-button:hover{
+    background-color: #027fae;
+}
+
+.login-button:hover{
+    background-color: #202f40;
+}
 
 
