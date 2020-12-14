@@ -12,21 +12,21 @@
 
 
 </head>
-<body >
+<body>
     <main>
         <div>
             <div class="left" th:style="|background-image:url(@{/images/orgTwi.png});|"></div>
             <div class="right">
                 <section>
-                    <form>
+                    <form th:action="@{/login-page}" method="post">
                         <div class="login-field-start">
-                            <label class="login-label">Phone, email or username
-                                <input type="text">
+                            <label class="login-label" for="inputLogin">Phone, email or username
+                                <input type="text" id="inputLogin">
                             </label>
                         </div>
                         <div class="login-field-start">
-                            <label class="login-label">Password
-                                <input type="password">
+                            <label class="login-label" for="inputPassword">Password
+                                <input type="password" id="inputPassword">
                             </label>
                         </div>
                         <div class="in-sub">
@@ -45,8 +45,12 @@
                         </div>
                         <div class="join-tw-today">
                             <span>Join Twitter today.</span>
-                            <button class="button-on-start signup-button">Sign up</button>
-                            <button class="button-on-start login-button">Log in</button>
+                            <div class="button-on-start signup-button">
+                                <a class="href" onclick="location.href='registration';">Sign up</a>
+                            </div>
+                            <div class="button-on-start login-button">
+                                <a class="href" onclick="location.href='login';">Log in</a>
+                            </div>
                             <div style="clear:both;"></div>
                         </div>
                     </div>
@@ -55,5 +59,28 @@
             <div style="clear:both;"></div>
         </div>
     </main>
+    <footer>
+        <div class="foot">
+            <div style="float: left; width: 180px; height: 20px"></div>
+            <div class="foot-el">About</div>
+            <div class="foot-el">Help Center</div>
+            <div class="foot-el">Terms of Service</div>
+            <div class="foot-el">Privacy Policy</div>
+            <div class="foot-el">Cookie Policy</div>
+            <div class="foot-el">Ads info</div>
+            <div class="foot-el">Blog</div>
+            <div class="foot-el">Status</div>
+            <div class="foot-el">Careers</div>
+            <div class="foot-el">Brand Resources</div>
+            <div class="foot-el">Advertising</div>
+            <div class="foot-el">Marketing</div>
+            <div class="foot-el">Twitter for Business</div>
+            <div class="foot-el">Developers</div>
+            <div class="foot-el">Directory</div>
+            <div class="foot-el">Settings</div>
+            <div class="foot-el">2020 Twitter, Inc.</div>
+            <div style="clear:both;"></div>
+        </div>
+    </footer>
 </body>
 </html>

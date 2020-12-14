@@ -7,9 +7,11 @@ body{
 
 .left{
     width: 852px;
-    height: 788px;
+    height: 690px;
     float: left;
 }
+
+/* right ############################################################################################# */
 
 .right{
     width: 550px;
@@ -70,6 +72,7 @@ input[type=submit]{
     border-radius: 20px;
     width: 70px;
     height: 40px;
+    cursor: pointer;
 }
 
 input[type=submit]:hover{
@@ -78,7 +81,7 @@ input[type=submit]:hover{
 
 .under-log{
     width: 70%;
-    margin-top: 200px;
+    margin-top: 150px;
     margin-left: 0;
     height: 200px;
 }
@@ -94,19 +97,6 @@ input[type=submit]:hover{
     font-weight: bold;
 }
 
-.button-on-start{
-    margin-top: 10px;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    background: none;
-    border: 1px solid #008abe;
-    border-radius: 20px;
-    width: 400px;
-    height: 40px;
-    text-align: center;
-}
-
 .forgot-pass{
     text-decoration: none;
     font-size: 13px;
@@ -119,21 +109,56 @@ input[type=submit]:hover{
     text-decoration: underline ;
 }
 
+.button-on-start{
+    margin-top: 10px;
+    background: none;
+    border: 1px solid #008abe;
+    border-radius: 20px;
+    width: 400px;
+    height: 40px;
+    text-align: center;
+}
+
 .signup-button{
     color: #ffffff;
     background-color: #008abe;
-}
-
-.login-button{
-    color: #008abe;
 }
 
 .signup-button:hover{
     background-color: #027fae;
 }
 
+.href{
+    display: block;
+    border-radius: 20px;
+    width: 400px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.login-button{
+    color: #008abe;
+}
+
 .login-button:hover{
     background-color: #202f40;
 }
 
+/* footer ############################################################################################# */
+.foot{
+    margin-top: 10px;
+    width: 100%;
+}
 
+.foot-el{
+    font-size: 11px;
+    color: #dddddd;
+    margin-left: 15px;
+    float: left;
+}
+
+.foot-el:hover{
+    text-decoration: underline;
+}
