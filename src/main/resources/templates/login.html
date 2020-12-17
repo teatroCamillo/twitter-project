@@ -5,6 +5,7 @@
     <title>Strona logowania:</title>
 
     <link href="css/main.css" rel="stylesheet" >
+    <link href="css/login.css" rel="stylesheet" >
     <link href="css/fontello.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
@@ -12,23 +13,29 @@
 </head>
 <body>
 <main>
-    <div><i class="icon-twitter"></i></div>
-    <h1>Log in to Twitter</h1>
+    <div class="i-tw"><i class="icon-twitter"></i></div>
+    <div class="i-tw"><h1>Log in to Twitter</h1></div>
     <div>
         <form th:action="@{/login-page}" method="post">
-            <table align="center">
-                <tr>
-                    <td><label for="inputLogin"><b>Login:</b></label></td>
-                    <td><input type="text" name="login" id="inputLogin" placeholder="Login"/></td>
-                </tr>
-                <tr>
-                    <td><label for="inputPassword"><b>Password:</b></label></td>
-                    <td><input type="password" id="inputPassword" name="password" placeholder="Password"/></td>
-                </tr>
-            </table>
-            <p style="line-height: 1cm"></p>
-            <button class="btn btn-lg btn-success" type="submit">Zaloguj się</button>
+            <div class="login-box">
+                <label class="login-label" for="inputLogin">Phone, email or username
+                    <input type="text" name="login" id="inputLogin" required/>
+                </label>
+            </div>
+            <div class="login-box">
+                <label class="login-label" for="inputPassword">Password
+                    <input type="password" id="inputPassword" name="password" required/>
+                </label>
+            </div>
+            <div class="in-sub">
+                <input type="submit" value="Log in">
+            </div>
         </form>
+        <div class="links">
+            <a href="#" class="forgot-pass">Forgot password?</a>
+            <span>.</span>
+            <a href="#" class="forgot-pass" onclick="location.href='registration';">Sign up for Twitter</a>
+        </div>
     </div>
     <p style="line-height: 1cm"></p>
     <div align="center">
