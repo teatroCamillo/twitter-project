@@ -1,11 +1,6 @@
 package mvc.model.dto;
 
-import mvc.model.Role;
-
-import java.time.LocalDate;
-
-
-public class UserDTO {
+public class AdminDTO {
 
     private Long id;
     private String login;
@@ -13,7 +8,7 @@ public class UserDTO {
     private String lastName;
     private String mail;
     private String password;
-    private LocalDate birthDate;
+    private String birthDate;
     private String role;
 
     public Long getId() {
@@ -64,11 +59,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

@@ -1,20 +1,23 @@
-package mvc.model.dto;
+package mvc.model.entity;
 
-import mvc.model.Role;
+import javax.persistence.*;
 
-import java.time.LocalDate;
+@Entity
+@Table(name = "admins")
+public class Admin {
 
-
-public class UserDTO {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String login;
     private String firstName;
     private String lastName;
     private String mail;
     private String password;
-    private LocalDate birthDate;
+    private String birthDate;
     private String role;
+
+    public Admin(){}
 
     public Long getId() {
         return id;
@@ -64,11 +67,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

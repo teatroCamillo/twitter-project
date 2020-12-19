@@ -2,12 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Users list:</title>
-    <!--link rel="stylesheet" href="main.css"-->
+    <title>Administrators list:</title>
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
 </head>
 <body>
-<h1 align="center">Found user:</h1>
+<h1 align="center">Administrators list:</h1>
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -17,12 +16,12 @@
         <th scope="col">Login:</th>
     </thead>
     <tbody>
-    <tr th:each="allUsers : ${userList}">
-        <form action="/deleteuser" method="post", th:object="${allUsers}">
-            <td type="number" th:text="${allUsers.id}"/>
-            <td th:text="${allUsers.firstName}"/>
-            <td th:text="${allUsers.lastName}"/>
-            <td th:text="${allUsers.login}"/>
+    <tr th:each="allAdmins : ${adminList}">
+        <form action="/admins" method="post", th:object="${allAdmins}">
+            <td type="number" th:text="${allAdmins.id}"/>
+            <td th:text="${allAdmins.firstName}"/>
+            <td th:text="${allAdmins.lastName}"/>
+            <td th:text="${allAdmins.login}"/>
         </form>
     </tr>
     </tbody>

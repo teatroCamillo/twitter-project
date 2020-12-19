@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Wyświetlenie wszystkich użytkowników:</title>
+    <title>Users list:</title>
     <!--link rel="stylesheet" href="main.css"-->
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
 </head>
 <body>
-<h1 align="center">Szukany użytkownik/użytkowniczka:</h1>
+<h1 align="center">Found user:</h1>
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -29,7 +29,7 @@
 </table>
 <p style="line-height: 1cm"></p>
 <form th:action="@{/index}">
-    <button type="submit">Powrót</button>
+    <button type="submit">Back</button>
 </form>
 </body>
 </html>

@@ -1,7 +1,5 @@
 package mvc.model.entity;
 
-import mvc.model.Role;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -11,23 +9,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
-    @Column(name="login")
     private String login;
-    @Column(name="first_name")
     private String firstName;
-    @Column(name="last_name")
     private String lastName;
-    @Column(name="mail")
     private String mail;
-    @Column(name="password")
     private String password;
-    @Column(name="birth_date")
     private LocalDate birthDate;
-    @Column(name="role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String role;
+
+    public User(){}
 
     public Long getId() {
         return id;
@@ -85,11 +76,11 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

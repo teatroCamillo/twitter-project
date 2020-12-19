@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Witaj w aplikacji Twitter</title>
+    <title>Welcom in Twitter App</title>
 
     <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/static/css/start.css}"/>
@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<h1 align="center">Witaj w aplikacji twitter <input disabled th:value="${login}"> </h1>
+<h1 align="center">Welcome in Twitter App <input disabled th:value="${login}"> </h1>
 
 <form action="/users">
-    <button class="btn btn-info" type="submit">Pokaż użytkowników</button>
+    <button class="btn btn-info" type="submit">Show users</button>
 </form>
 <p style="line-height: 1cm"></p>
 <!--form action="/delete">
@@ -21,7 +21,15 @@
 </form>
 <p style="line-height: 1cm"></p>
 <form action="/finduser">
-    <button class="btn btn-info" type="submit">Znajdz użytkownika</button>
+    <button class="btn btn-info" type="submit">Find a user</button>
+</form>
+<p style = "line-height: 1cm"></p>
+<form action="/addadmin">
+    <button class="btn btn-info">Add an admnistrator</button>
+</form>
+<p style = "line-height: 1cm"></p>
+<form action="/admins">
+    <button class="btn btn-info">Admnistrators list</button>
 </form>
 </body>
 </html>
