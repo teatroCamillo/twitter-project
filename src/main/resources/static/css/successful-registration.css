@@ -1,0 +1,21 @@
+.i-tw{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.link{
+    text-decoration: none;
+    font-size: 13px;
+    color: #008abe;
+    letter-spacing: 1px;
+}
+
+.link:hover{
+    text-decoration: underline ;
+}

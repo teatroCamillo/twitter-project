@@ -2,16 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Strona logowania:</title>
-<!--    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>-->
-    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successful registration</title>
+
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/successful-registration.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <main>
-    <h1 align="center">Great!</h1>
+    <div class="i-tw"><i class="icon-twitter"></i></div>
+    <h1>Great!</h1>
     <div align="center">
         <h3>Successful registration.</h3><br/>
-        <span>Now please go <a th:href="@{/login}">here</a> and sign in to your account.</span>
+        <span style="font-size: 13px;">Now please go <a class="link" th:href="@{/login}">here</a> and sign in to your account.</span>
     </div>
 </main>
 </body>

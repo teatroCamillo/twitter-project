@@ -1,0 +1,157 @@
+.left{
+    width: 852px;
+    height: 690px;
+    float: left;
+}
+
+/* right ############################################################################################# */
+
+.right{
+    width: 550px;
+    height: 488px;
+    float: left;
+    padding: 20px 0 0 100px;
+}
+
+.login-field-start{
+    background-color: #192734;
+    width: 200px;
+    height: 51px;
+    margin-right: 10px;
+    float: left;
+}
+
+
+.login-label{
+    color: dimgrey;
+    height: 46px;
+    margin-left: 0;
+    margin-top: 5px;
+    display: block;
+    border-bottom: darkgray solid 3px;
+    padding-left: 9px;
+}
+
+.login-label:focus-within{
+    border-bottom: #008abe solid 3px;
+    color: #008abe;
+}
+
+input[type=text],
+input[type=password]{
+    width: 180px;
+    margin-left: 0;
+    background-color: #192734;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.in-sub{
+    height: 51px;
+    width: 70px;
+    float: left;
+    padding-top: 6px;
+}
+
+input[type=submit]{
+    color: #008abe;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #008abe;
+    border-radius: 20px;
+    width: 70px;
+    height: 40px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: #213248;
+}
+
+.under-log{
+    width: 70%;
+    margin-top: 150px;
+    margin-left: 0;
+    height: 200px;
+}
+
+.happen{
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.join-tw-today{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.forgot-pass{
+    text-decoration: none;
+    font-size: 13px;
+    color: #008abe;
+    margin-left: 217px;
+    letter-spacing: 1px;
+}
+
+.forgot-pass:hover{
+    text-decoration: underline ;
+}
+
+.button-on-start{
+    margin-top: 10px;
+    background: none;
+    border: 1px solid #008abe;
+    border-radius: 20px;
+    width: 400px;
+    height: 40px;
+    text-align: center;
+}
+
+.signup-button{
+    color: #ffffff;
+    background-color: #008abe;
+}
+
+.signup-button:hover{
+    background-color: #027fae;
+}
+
+.href{
+    display: block;
+    border-radius: 20px;
+    width: 400px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.login-button{
+    color: #008abe;
+}
+
+.login-button:hover{
+    background-color: #202f40;
+}
+
+/* footer ############################################################################################# */
+.foot{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.foot-el{
+    font-size: 11px;
+    color: #dddddd;
+    margin-left: 15px;
+    float: left;
+}
+
+.foot-el:hover{
+    text-decoration: underline;
+}

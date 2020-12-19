@@ -1,5 +1,6 @@
 package mvc.service;
 
+import mvc.model.Role;
 import mvc.model.dto.UserDTO;
 import mvc.model.entity.User;
 import mvc.repository.UserRepository;
@@ -46,7 +47,8 @@ public class UserService {
                 .map(user -> modelMapper.map(user, UserDTO.class));
     }
 
-    public User create(UserDTO userDTO) {
+    public User create(UserDTO userDTO){
+        userDTO.setRole(Role.USER);
         User user = modelMapper.map(userDTO, User.class);
         return userRepository.save(user);
     }

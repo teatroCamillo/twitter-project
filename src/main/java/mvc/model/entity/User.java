@@ -1,7 +1,6 @@
 package mvc.model.entity;
 
 import mvc.model.Role;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,6 +26,7 @@ public class User {
     @Column(name="birth_date")
     private LocalDate birthDate;
     @Column(name="role")
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public Long getId() {
