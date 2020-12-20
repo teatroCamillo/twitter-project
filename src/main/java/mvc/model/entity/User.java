@@ -16,7 +16,7 @@ public class User {
     private String mail;
     private String password;
     private LocalDate birthDate;
-    private String role;
+    private Role role;
 
     public User(){}
 
@@ -76,11 +76,11 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

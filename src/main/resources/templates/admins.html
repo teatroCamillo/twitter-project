@@ -14,14 +14,19 @@
         <th scope="col">First name:</th>
         <th scope="col">Last name:</th>
         <th scope="col">Login:</th>
+        <th scope="col">Delete Admin:</th>
     </thead>
     <tbody>
     <tr th:each="allAdmins : ${adminList}">
-        <form action="/admins" method="post", th:object="${allAdmins}">
+        <form action="/deleteadmin" method="post", th:object="${allAdmins}">
             <td type="number" th:text="${allAdmins.id}"/>
             <td th:text="${allAdmins.firstName}"/>
             <td th:text="${allAdmins.lastName}"/>
             <td th:text="${allAdmins.login}"/>
+            <td>
+                <input type="hidden" name="id" th:value="${allAdmins.id}">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </td>
         </form>
     </tr>
     </tbody>
