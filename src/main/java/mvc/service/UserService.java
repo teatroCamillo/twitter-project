@@ -48,7 +48,7 @@ public class UserService {
     }
 
     public User create(UserDTO userDTO){
-        userDTO.setRole(Role.USER);
+        userDTO.setRole("USER");
         User user = modelMapper.map(userDTO, User.class);
         return userRepository.save(user);
     }

@@ -14,7 +14,7 @@ public class UserDTO {
     private String mail;
     private String password;
     private LocalDate birthDate;
-    private Role role;
+    private String role;
 
     public Long getId() {
         return id;
@@ -72,11 +72,11 @@ public class UserDTO {
         this.birthDate = birthDate;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

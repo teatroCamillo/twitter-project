@@ -2,16 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Witaj w aplikacji Twitter</title>
-    <!--link rel="stylesheet" th:href="@{main.css}"/-->
+    <title>Welcom in Twitter App</title>
+<<<<<<< HEAD
+
+    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/static/css/start.css}"/>
+
+=======
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+>>>>>>> admins login additional functionality added and remove admin from the list
 </head>
 <body>
-
-<h1 align="center">Witaj w aplikacji twitter <input disabled th:value="${login}"> </h1>
+<div align="right">
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+</div>
+<h1 align="center">Welcome in Twitter App <input disabled th:value="${login}"> </h1>
 
 <form action="/users">
-    <button class="btn btn-info" type="submit">Pokaż użytkowników</button>
+    <button class="btn btn-info" type="submit">Show users</button>
 </form>
 <p style="line-height: 1cm"></p>
 <!--form action="/delete">
@@ -19,7 +29,15 @@
 </form>
 <p style="line-height: 1cm"></p>
 <form action="/finduser">
-    <button class="btn btn-info" type="submit">Znajdz użytkownika</button>
+    <button class="btn btn-info" type="submit">Find a user</button>
+</form>
+<p style = "line-height: 1cm"></p>
+<form action="/addadmin">
+    <button class="btn btn-info">Add an admnistrator</button>
+</form>
+<p style = "line-height: 1cm"></p>
+<form action="/admins">
+    <button class="btn btn-info">Admnistrators list</button>
 </form>
 </body>
 </html>

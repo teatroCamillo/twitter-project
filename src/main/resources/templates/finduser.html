@@ -2,20 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Znajdź użytkownika:</title>
+    <title>Find a user:</title>
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
 </head>
 <body>
-<h1>Znajdź użytkownika znając jego nazwisko:</h1>
+<h1>Find the user by a last name:</h1>
 <form th:action="@{/finduserbylastname}" method="get" th:object="${finduser}">
-    <label for="inputLastName">Podaj nazwisko:</label>
+    <label for="inputLastName">Enter last name:</label>
     <input type="text" id="inputLastName" name="lastName">
-    <button type="submit">Szukaj</button>
+    <button type="submit">Find</button>
 </form>
 <div>
     <h4 style="line-height: 1cm"></h4>
 <form th:action="@{/index}">
-    <button type="submit">Powrót</button>
+    <button type="submit">Back</button>
 </form>
 </div>
 </body>

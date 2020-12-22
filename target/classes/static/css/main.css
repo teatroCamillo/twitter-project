@@ -1,13 +1,7 @@
-h1{
-    font-weight: bold;
-    background-color: azure;
+body{
+    background-color: #15202c;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
-p {
-    font-style: italic;
-}
-
-tr {
-    font-weight: bold;
-    background-color: lightgreen;
-}

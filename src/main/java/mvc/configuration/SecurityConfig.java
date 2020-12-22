@@ -29,8 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/", "/index/")
                     .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-                .antMatchers(HttpMethod.DELETE, "users")
-                    .hasAnyAuthority("ADMIN")
+                .antMatchers("/addadmin","/admins","/admin-success")
+                    .hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/users")
+                    .hasAnyAuthority("ROLE_ADMIN")
                 .anyRequest().permitAll()
                 .and()
                     .csrf().disable()
@@ -60,6 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .usersByUsernameQuery("SELECT U.LOGIN, U.PASSWORD, 1 FROM USERS U WHERE U.LOGIN=?")
                 .authoritiesByUsernameQuery("SELECT U.LOGIN, 'ROLE_USER', 1 FROM USERS U WHERE U.LOGIN=?")
+                .dataSource(jdbcTemplate.getDataSource())
+                .passwordEncoder(passwordEncoder);
+
+        auth.jdbcAuthentication()
+                .usersByUsernameQuery("SELECT LOGIN, PASSWORD, 1 FROM ADMINS WHERE LOGIN=?")
+                .authoritiesByUsernameQuery("SELECT A.LOGIN, 'ROLE_ADMIN', 1 FROM ADMINS A WHERE A.LOGIN=?")
                 .dataSource(jdbcTemplate.getDataSource())
                 .passwordEncoder(passwordEncoder);
     }

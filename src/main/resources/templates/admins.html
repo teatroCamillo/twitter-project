@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrators list:</title>
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+</head>
+<body>
+<h1 align="center">Administrators list:</h1>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First name:</th>
+        <th scope="col">Last name:</th>
+        <th scope="col">Login:</th>
+        <th scope="col">Delete Admin:</th>
+    </thead>
+    <tbody>
+    <tr th:each="allAdmins : ${adminList}">
+        <form action="/deleteadmin" method="post", th:object="${allAdmins}">
+            <td type="number" th:text="${allAdmins.id}"/>
+            <td th:text="${allAdmins.firstName}"/>
+            <td th:text="${allAdmins.lastName}"/>
+            <td th:text="${allAdmins.login}"/>
+            <td>
+                <input type="hidden" name="id" th:value="${allAdmins.id}">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </td>
+        </form>
+    </tr>
+    </tbody>
+</table>
+<p style="line-height: 1cm"></p>
+<form th:action="@{/index}">
+    <button type="submit">Back</button>
+</form>
+</body>
+</html>
