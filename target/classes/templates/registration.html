@@ -4,36 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter Sign Up</title>
-    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/registration.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <main>
-    <h2>Sign Up to Twitter</h2>
-    <div style="height: 20px;"></div>
-    <!--/*@thymesVar id="user" type="mvc.model.dto.UserDTO"*/-->
-    <form method="post" th:action="@{/registration}" th:object="${user}" >
-        <h3>Create your account</h3>
-        <label>Username
-            <input type="text" th:field="*{login}" required/>
-        </label>
-        <label>Name
-            <input type="text" th:field="*{firstName}" required/>
-        </label>
-        <label>Last name
-            <input type="text" th:field="*{lastName}" required/>
-        </label>
-        <label>Mail
-            <input type="email" th:field="*{mail}" required/>
-        </label>
-        <label>Password
-            <input type="password" th:field="*{password}" required/>
-        </label>
-        <label>Date of birth
-            <input type="date" th:field="*{birthDate}" />
-        </label>
-        <button type="submit">Accept</button>
-        <button type="reset">Reset</button>
-    </form>
+    <div class="i-tw"><i class="icon-twitter"></i></div>
+    <div>
+        <!--/*@thymesVar id="user" type="mvc.model.dto.UserDTO"*/-->
+        <form method="post" th:action="@{/registration}" th:object="${user}">
+            <div class="create-your">
+                <h3>Create your account</h3>
+            </div>
+            <div class="box">
+                <label class="login-label" >Username
+                    <input type="text" th:field="*{login}" required/>
+                </label>
+            </div>
+            <div class="box">
+                <label class="login-label">Name
+                    <input type="text" th:field="*{firstName}" required/>
+                </label>
+            </div>
+            <div class="box">
+                <label class="login-label">Last name
+                    <input type="text" th:field="*{lastName}" required/>
+                </label>
+            </div>
+            <div class="box">
+                <label class="login-label">Mail
+                    <input type="email" th:field="*{mail}" required/>
+                </label>
+            </div>
+            <div class="box">
+                <label class="login-label">Password
+                    <input type="password" th:field="*{password}" required/>
+                </label>
+            </div>
+            <div class="box">
+                <label class="login-label">Date of birth
+                    <input type="date" th:field="*{birthDate}" />
+                </label>
+            </div>
+            <div class="button-reg">
+                <div style="float: left; width: 510px; height: 20px"></div>
+                <div class="acc-res">
+                    <input type="submit" value="Accept">
+                </div>
+                <div style="float: left; width: 300px; height: 20px"></div>
+                <div class="acc-res">
+                    <input type="reset" value="Reset">
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="link-div">
+                <span style="font-size: 13px;">Already registered?   </span> <a class="link" th:href="@{/login}">Sign in here</a>
+            </div>
+        </form>
+    </div>
 </main>
 </body>
 </html>
