@@ -9,12 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @GetMapping("/index")
+    @GetMapping("/userpage")
     public ModelAndView test(){
         Authentication authentication = SecurityContextHolder
                 .getContext()
                 .getAuthentication();
-        return new ModelAndView("index","login",
+        return new ModelAndView("userpage","login",
                 authentication.getName() + " " + authentication.getAuthorities());
     }
 
