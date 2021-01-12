@@ -1,2 +1,41 @@
+.b-twi-ic{
+    border-radius: 50px;
+    font-size: 1.5rem;
+    width: fit-content;
+}
 
+.b-twi-ic:hover{
+    background-color: #203143 !important;
+    color: white !important;
+}
+
+.b-twi-ic > a:hover{
+    color: white !important;
+}
+
+.b-twi-ic > a:focus{
+    color: white !important;
+}
+
+.left-menu{
+    width: fit-content;
+    border-radius: 30px;
+    font-size: 1.3rem;
+}
+
+.left-menu:hover{
+    background-color: #203143 !important;
+}
+
+.left-menu > a{
+    font-weight: bold;
+}
+
+.left-menu > a:hover{
+    color: #027fae !important;
+}
+
+.left-menu > a:focus{
+    color: #027fae !important;
+}
 
