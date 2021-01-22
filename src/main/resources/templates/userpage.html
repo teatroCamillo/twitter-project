@@ -105,12 +105,12 @@
                         </button>
                     </div>
                     <div class="my-1">
-                        <button class="d-flex justify-content-center justify-content-xl-start mb-2 p-0 user-at-id" type="button">
+                        <button type="submit" class="d-flex justify-content-center justify-content-xl-start mb-2 p-0 user-at-id">
                             <i class="d-none d-xl-inline-block mx-2 bi bi-person-circle" style="font-size: 2.3rem;"></i>
                             <span class="d-inline-block mt-2">
                                     <span class="d-none d-xl-block m-0 p-0 text-left" style="font-size: 1rem; font-weight: bold;">user</span>
-                                    <span class="d-none d-xl-block m-0 p-0 text-left" style="font-size: 1rem; color: #808080;">@userID</span>
-                                </span>
+                                    <span class="d-none d-xl-block m-0 p-0 text-left" style="font-size: 1rem; color: #808080;">@userid</span>
+                            </span>
                             <i class="d-inline-block mx-0 mt-0 mb-2 ml-xl-4 mt-xl-2 bi bi-three-dots" style="font-size: 2rem;"></i>
                         </button>
                     </div>
@@ -138,7 +138,9 @@
             <aside>
                 <div class="d-flex flex-column justify-content-between vh-100">
                     <div class="mt-3 div-search-input">
-                        <input type="search" placeholder="Search Twitter">
+                        <form>
+                            <input type="search" placeholder="Search Twitter">
+                        </form>
                     </div>
                     <div class="mt-3 flex-grow-1 like-trends">
                         <div class="p-2" style="height: 3rem; border-bottom: solid 1px #95999c;">
@@ -148,6 +150,12 @@
                     <div class="mt-3 flex-grow-1 like-trends">
                         <div class="p-2" style="height: 3rem; border-bottom: solid 1px #95999c;">
                             <label class="mb-0 mt-1 pl-2 font-weight-bold" style="font-size: 1.3rem;">Trends for you</label>
+                        </div>
+
+                        <div>
+                            <form method="POST" th:action="@{/logout}">
+                                <input type="submit" value="Log out">
+                            </form>
                         </div>
                     </div>
                 </div>
