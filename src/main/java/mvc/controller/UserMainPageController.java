@@ -1,7 +1,6 @@
 package mvc.controller;
 
 import mvc.model.dto.UserDTO;
-import mvc.model.entity.User;
 import mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +16,17 @@ public class UserMainPageController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Returns /user-page by GET method.
+     */
     @GetMapping("/user-page")
     public ModelAndView getUserPage(){
         return new ModelAndView("user-page");
     }
 
+    /**
+     * Returns list of users with the login search by POST method.
+     */
     @PostMapping("/find-user-by-login")
     public ModelAndView findUserByLogin(String login) {
         List<UserDTO> listUsersByLogin = userService.findByLogin(login);
@@ -30,18 +35,4 @@ public class UserMainPageController {
         mv.addObject("listUsersByLogin", listUsersByLogin);
         return mv;
     }
-
-
-//    @PostMapping("/find-user-by-login")
-//    public ModelAndView findUserByLogin(@ModelAttribute("userDTO") UserDTO userDTO) {
-//        List<UserDTO> userDTOList = userService.findByLogin(userDTO.getLogin());
-//
-//        ModelAndView mv = new ModelAndView();
-//        mv.setViewName("user-page");
-//        mv.addObject("userDTOList", userDTOList);
-//
-//        return mv;
-//    }
-
-
 }

@@ -2,8 +2,7 @@ package mvc.controller;
 
 import mvc.model.dto.AdminDTO;
 import mvc.service.AdminService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,38 +14,40 @@ import java.util.List;
 @RestController
 public class AdminController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
-
+    @Autowired
     private AdminService adminService;
 
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
-    }
-
+    /**
+     * Returns /addadmin by GET method.
+     */
     @GetMapping("/addadmin")
     public ModelAndView getAddAdmin(){
-        logger.warn("Before adding the admin. Admin form adding.");
         return new ModelAndView("addadmin","newAdmin", new AdminDTO());
     }
 
+    /**
+     * Executes addition new admin by POST method.
+     */
     @PostMapping("/addadmin")
     public String addNewAdmin(@ModelAttribute AdminDTO adminDTO){
-        logger.warn("Adding new admin");
-        System.out.println(adminDTO.getFirstName() + " " + adminDTO.getLastName());
         adminService.addAdmin(adminDTO);
         return "admin-success";
     }
 
+    /**
+     * Returns all admins by GET method.
+     */
     @GetMapping("/admins")
     public ModelAndView getAllAdmins(){
-        logger.warn("List the admin list");
         List<AdminDTO> adminDTOList = adminService.getAllAdmins();
         return new ModelAndView("admins","adminList", adminDTOList);
     }
 
+    /**
+     * Executes removal admin by POST method.
+     */
     @PostMapping("/deleteadmin")
     public String deleteAdmin(@ModelAttribute AdminDTO adminDTO){
-        logger.warn("delete admin");
         adminService.deleteAdminById(adminDTO.getId());
         return "user-page";
     }

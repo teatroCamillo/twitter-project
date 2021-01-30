@@ -13,12 +13,6 @@ public class UserDTO {
     private LocalDate birthDate;
     private String role;
 
-    public UserDTO(){}
-
-    public UserDTO(String login) {
-        this.login = login;
-    }
-
     public Long getId() {
         return id;
     }

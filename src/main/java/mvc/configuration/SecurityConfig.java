@@ -1,7 +1,5 @@
 package mvc.configuration;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,24 +10,28 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * WebSecurityConfigurerAdapter
+ * This is a class that allows customization to WebSecurity and HttpSecurity.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * It allows configuring web based security for specific http requests.
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                     .antMatchers(HttpMethod.GET, "/user-page").hasAuthority("USER")
                     .antMatchers("/addadmin","/admins","/admin-success")
-                        .hasAnyAuthority("ROLE_ADMIN")
-                    .antMatchers(HttpMethod.DELETE, "/users")
-                        .hasAnyAuthority("ROLE_ADMIN")
+                        .hasAnyAuthority("ADMIN")
                     .and()
                         .csrf().disable()
                         .headers().frameOptions().disable()
@@ -42,6 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .deleteCookies("JSESSIONID");
     }
 
+    /**
+     * Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding UserDetailsService,      * and adding AuthenticationProvider's.
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.jdbcAuthentication()
@@ -49,12 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("SELECT login, password, 'true' as enable FROM users WHERE login = ?")
                 .authoritiesByUsernameQuery("SELECT login, role FROM users WHERE login = ?")
                 .passwordEncoder(passwordEncoder);
-
-//        auth.jdbcAuthentication()
-//                .usersByUsernameQuery("SELECT LOGIN, PASSWORD, 1 FROM ADMINS WHERE LOGIN=?")
-//                .authoritiesByUsernameQuery("SELECT A.LOGIN, 'ROLE_ADMIN', 1 FROM ADMINS A WHERE A.LOGIN=?")
-//                .dataSource(jdbcTemplate.getDataSource())
-//                .passwordEncoder(passwordEncoder);
     }
 
 }

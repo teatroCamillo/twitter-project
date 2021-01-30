@@ -5,11 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-public class IndexController {
+public class StartPageController {
 
+    /**
+     * Returns /start-page by GET method.
+     */
     @GetMapping("/")
-    public ModelAndView showStart() {
-        return new ModelAndView("index");
+    public ModelAndView getStart() {
+        return new ModelAndView("start-page");
     }
-
 }
