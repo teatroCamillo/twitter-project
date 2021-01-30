@@ -1,9 +1,6 @@
 package mvc.model.dto;
 
-import mvc.model.Role;
-
 import java.time.LocalDate;
-
 
 public class UserDTO {
 
@@ -15,6 +12,12 @@ public class UserDTO {
     private String password;
     private LocalDate birthDate;
     private String role;
+
+    public UserDTO(){}
+
+    public UserDTO(String login) {
+        this.login = login;
+    }
 
     public Long getId() {
         return id;

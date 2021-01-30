@@ -4,13 +4,15 @@ import mvc.model.dto.AdminDTO;
 import mvc.service.AdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class AdminController {
 
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
@@ -46,6 +48,6 @@ public class AdminController {
     public String deleteAdmin(@ModelAttribute AdminDTO adminDTO){
         logger.warn("delete admin");
         adminService.deleteAdminById(adminDTO.getId());
-        return "userpage";
+        return "user-page";
     }
 }

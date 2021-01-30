@@ -7,12 +7,10 @@ import mvc.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -23,21 +21,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-
-    @GetMapping("/finduser")
-    public ModelAndView findUser() {
-        logger.warn("List the users");
-        return new ModelAndView("finduser", "finduser", new UserDTO());
-    }
-
-    @GetMapping("/finduserbylastname")
-    public ModelAndView findUserByLastName(@ModelAttribute UserDTO userDTO) {
-        logger.warn("Find a user by a last name");
-        List<UserDTO> userDTOList = userService.findUserByLastName(userDTO.getLastName());
-        return new ModelAndView("users", "userList", userDTOList);
-    }
-
 
     @GetMapping("/users")
     ResponseEntity<List<UserDTO>> findAllUsers() {
@@ -59,4 +42,10 @@ public class UserController {
         User result = userService.create(userDTO);
         return ResponseEntity.created(URI.create("/" + result.getId())).build();
     }
+
+    //    @GetMapping("/finduser")
+//    public ModelAndView findUser() {
+//        logger.warn("List the users");
+//        return new ModelAndView("finduser", "finduser", new UserDTO());
+//    }
 }
