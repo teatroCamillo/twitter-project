@@ -36,7 +36,7 @@ public class UserService {
         return userRepository
                 .findAll()
                 .stream()
-                .filter(user -> user.getLogin().equals(login))
+                .filter(user -> user.getLogin().contains(login))
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
