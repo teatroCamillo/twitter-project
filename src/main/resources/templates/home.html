@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home</title>
+
+    <div th:replace="~{home-fragments/home-fragments :: links}"></div>
+
+</head>
+<body class="container-fluid">
+    <div th:replace="~{home-fragments/home-fragments :: main-content}"></div>
+
+    <div th:replace="~{home-fragments/home-fragments :: scripts}"></div>
+</body>
+</html>

@@ -49,6 +49,6 @@ public class AdminController {
     @PostMapping("/deleteadmin")
     public String deleteAdmin(@ModelAttribute AdminDTO adminDTO){
         adminService.deleteAdminById(adminDTO.getId());
-        return "user-page";
+        return "home";
     }
 }

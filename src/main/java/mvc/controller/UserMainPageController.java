@@ -21,7 +21,7 @@ public class UserMainPageController {
      */
     @GetMapping("/user-page")
     public ModelAndView getUserPage(){
-        return new ModelAndView("user-page");
+        return new ModelAndView("home");
     }
 
     /**
@@ -31,7 +31,7 @@ public class UserMainPageController {
     public ModelAndView findUserByLogin(String login) {
         List<UserDTO> listUsersByLogin = userService.findByLogin(login);
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("user-page");
+        mv.setViewName("home");
         mv.addObject("listUsersByLogin", listUsersByLogin);
         return mv;
     }
