@@ -5,6 +5,7 @@ import mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,5 +35,11 @@ public class UserMainPageController {
         mv.setViewName("home");
         mv.addObject("listUsersByLogin", listUsersByLogin);
         return mv;
+    }
+
+    @PostMapping("/follow")
+    public ModelAndView letsFollow(@RequestParam(name = "id") Integer id){
+        userService.whoFollowS(id);
+        return new ModelAndView("home");
     }
 }

@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/user-page").hasAuthority("USER")
+                    .antMatchers(HttpMethod.GET, "/user-page", "/follow").hasAuthority("USER")
                     .antMatchers("/addadmin","/admins","/admin-success")
                         .hasAnyAuthority("ADMIN")
                     .and()
@@ -49,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.eraseCredentials(false);
         auth.jdbcAuthentication()
                 .dataSource(jdbcTemplate.getDataSource())
                 .usersByUsernameQuery("SELECT login, password, 'true' as enable FROM users WHERE login = ?")

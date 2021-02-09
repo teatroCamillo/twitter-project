@@ -5,6 +5,8 @@ import mvc.model.entity.User;
 import mvc.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,4 +51,14 @@ public class UserService {
         User user = modelMapper.map(userDTO, User.class);
         return userRepository.save(user);
     }
+
+    public Integer getCurrentUserIdByQuery(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return userRepository.getActualUserId(auth.getName(), auth.getCredentials().toString());
+    }
+
+    public void whoFollowS(Integer followingId){
+        userRepository.whoFollow(followingId, getCurrentUserIdByQuery());
+    }
+
 }
