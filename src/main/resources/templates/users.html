@@ -6,29 +6,32 @@
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
 </head>
 <body>
-<h1 align="center">Found user:</h1>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First name:</th>
-        <th scope="col">Last name:</th>
-        <th scope="col">Login:</th>
-    </thead>
-    <tbody>
-    <tr th:each="allUsers : ${userList}">
-        <form action="/deleteuser" method="post", th:object="${allUsers}">
-            <td type="number" th:text="${allUsers.id}"/>
-            <td th:text="${allUsers.firstName}"/>
-            <td th:text="${allUsers.lastName}"/>
-            <td th:text="${allUsers.login}"/>
-        </form>
-    </tr>
-    </tbody>
-</table>
-<p style="line-height: 1cm"></p>
-<form th:action="@{/userpage}">
-    <button type="submit">Back</button>
-</form>
+
+<!--    <div th:fragment="find-user-by-login">-->
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First name:</th>
+                <th scope="col">Last name:</th>
+                <th scope="col">Login:</th>
+            </thead>
+            <tbody>
+            <tr th:each="allUsers : ${user}">
+                <td type="number" th:text="${allUsers.id}"/>
+                <td th:text="${allUsers.firstName}"/>
+                <td th:text="${allUsers.lastName}"/>
+                <td th:text="${allUsers.login}"/>
+            </tr>
+            </tbody>
+        </table>
+
+<!--        <br>-->
+<!--        <form th:action="@{/userpage}">-->
+<!--            <button type="submit">Back</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
 </body>
 </html>

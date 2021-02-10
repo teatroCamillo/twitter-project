@@ -1,25 +1,27 @@
 package mvc.repository;
 
 import mvc.model.entity.User;
-
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-public interface UserRepository{
-
-    List<User> findUserByLastName(@Param("lastName") String lastName);
+public interface UserRepository extends JpaRepository<User, Integer> {
 
     List<User> findAll();
 
-    Optional<User> findById(Integer id);
+    <S extends User> S save(S s);
 
-    User save(User user);
+    @Query(value = "select id from users where login = :login and password = :password", nativeQuery = true)
+    Integer getActualUserId(@Param("login") String login, @Param("password") String password);
 
-    void deleteUserById(Long id);
+    @Modifying
+    @Query(value = "insert into users_followers value (:following, :follower)", nativeQuery = true)
+    @Transactional
+    void whoFollow(@Param("following") Integer following, @Param("follower") Integer follower);
 }

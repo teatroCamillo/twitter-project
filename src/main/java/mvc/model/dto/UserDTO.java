@@ -1,9 +1,6 @@
 package mvc.model.dto;
 
-import mvc.model.Role;
-
 import java.time.LocalDate;
-
 
 public class UserDTO {
 

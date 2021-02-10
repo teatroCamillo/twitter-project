@@ -134,11 +134,37 @@ li{
     }
 }
 
+.render-list-search-users{
+    border-top: #95999c 1px solid;
+    border-bottom: #95999c 1px solid;
+}
+
+.follow-button{
+    border: 1px solid #027fae;
+    border-radius: 30px;
+    background-color: #15202b;
+    color: #027fae;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.follow-button:hover{
+    background-color: #1c2837;
+}
+
 /* aside layout ################################################################################################ */
 .div-search-input{
     height: 30px;
     background-color: #203143;
     border-radius: 50px;
+}
+
+input[type=search]{
+    background-color: #203143;
+    border: none;
+    outline: none;
+    color: white;
+    width: max-content;
 }
 
 .like-trends{

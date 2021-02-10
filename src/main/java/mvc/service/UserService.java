@@ -1,64 +1,70 @@
 package mvc.service;
 
-import mvc.model.Role;
 import mvc.model.dto.UserDTO;
 import mvc.model.entity.User;
 import mvc.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-    private final ModelMapper modelMapper;
-    private final UserRepository userRepository;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private ModelMapper modelMapper;
+    @Autowired
+    private UserRepository userRepository;
 
-    public UserService(final ModelMapper modelMapper, final UserRepository userRepository) {
-        this.modelMapper = modelMapper;
-        this.userRepository = userRepository;
-    }
-
-
-    public List<UserDTO> getAllUsers() {
-        return userRepository.findAll().stream()
-                .map(user -> modelMapper.map(user, UserDTO.class))
-                .collect(Collectors.toList());
-    }
-
-    public List<UserDTO> findUserByLastName(String lastName) {
+    /**
+     * Returns the entire list of mapped users from User to UserDTO.
+     */
+    public List<UserDTO> getAllUsersS() {
         return userRepository
-                .findUserByLastName(lastName)
+                .findAll()
                 .stream()
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
 
-    public Optional<UserDTO> getUserById(Integer id) {
-        return userRepository.findById(id)
-                .map(user -> modelMapper.map(user, UserDTO.class));
+    /**
+     * Returns list of mapped users by search @param login.
+     */
+    public List<UserDTO> findByLoginS(String login) {
+        return userRepository
+                .findAll()
+                .stream()
+                .filter(user -> user.getLogin().contains(login))
+                .map(user -> modelMapper.map(user, UserDTO.class))
+                .collect(Collectors.toList());
     }
 
-    public User create(UserDTO userDTO){
+    /**
+     * Sets role for user, maps it to User & stores in database.
+     */
+    public User createS(UserDTO userDTO){
         userDTO.setRole("USER");
         User user = modelMapper.map(userDTO, User.class);
         return userRepository.save(user);
     }
 
-    public void deleteUserById(Long id) {
-        userRepository.deleteUserById(id);
+    /**
+     * Return actual logged User userId.
+     */
+    public Integer getCurrentUserIdByQueryS(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return userRepository.getActualUserId(auth.getName(), auth.getCredentials().toString());
     }
-     public void deleteUserByHisID(Long id){
-        String sqlDelete = "DELETE FROM users WHERE id=?";
-        jdbcTemplate.update(sqlDelete,1L);
-         System.out.println("User deleted with ID = " + id);
-     }
+
+    /**
+     * Saves record in db who is following and who is follower.
+     */
+    public void whoFollowS(Integer followingId){
+        userRepository.whoFollow(followingId, getCurrentUserIdByQueryS());
+    }
+
 }

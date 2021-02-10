@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-public class LoginController {
+public class StartPageController {
 
     /**
-     * Returns /login by GET method.
+     * Returns /start-page by GET method.
      */
-    @GetMapping("/login")
-    public ModelAndView login() {
-        return new ModelAndView("login");
+    @GetMapping("/")
+    public ModelAndView getStart() {
+        return new ModelAndView("start-page");
     }
 }
