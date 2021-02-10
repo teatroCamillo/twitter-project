@@ -21,7 +21,7 @@ public class AdminService {
     /**
      * Adds new admin.
      */
-    public void addAdmin(AdminDTO adminDTO) {
+    public void addAdminS(AdminDTO adminDTO) {
         Admin admin = modelMapper.map(adminDTO, Admin.class);
         adminRepository.save(admin);
     }
@@ -29,7 +29,7 @@ public class AdminService {
     /**
      * Returns entire list of admins.
      */
-    public List<AdminDTO> getAllAdmins() {
+    public List<AdminDTO> getAllAdminsS() {
         return adminRepository
                 .findAll()
                 .stream()
@@ -40,7 +40,7 @@ public class AdminService {
     /**
      * Removals admin by ID.
      */
-    public void deleteAdminById(Long id) {
+    public void deleteAdminByIdS(Long id) {
         adminRepository.deleteById(id);
     }
 }

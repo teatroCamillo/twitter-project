@@ -12,12 +12,9 @@
 }
 
 .box{
-    margin-top: 10px;
+    margin-top: 1rem;
     background-color: #15202c;
-    width: 500px;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 4rem;
     border: solid 1px grey;
     border-radius: 5px;
 }
@@ -27,8 +24,9 @@
 }
 
 .login-label{
-    height: 46px;
-    margin-left: 3px;
+    height: 3rem;
+    width: 100%;
+    padding-left: .5rem;
     margin-top: 5px;
     display: block;
 }
@@ -41,31 +39,19 @@ input[type=text],
 input[type=password],
 input[type=email],
 input[type=date]{
-    width: 490px;
-    margin-left: 0;
     background-color: #15202c;
     border: none;
     outline: none;
     color: white;
-    font-size: 22px;
+    width: 100%;
+    padding-right: .5rem;
+    font-size: 1.3rem;
     font-weight: 300;
     display: block;
 }
 
-.button-reg{
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .acc-res{
-    margin-top: 10px;
-    height: 51px;
-    width: 100px;
-    padding-top: 6px;
-    margin-left: auto;
-    margin-right: auto;
     border: none;
-    float: left;
 }
 
 input[type=submit],

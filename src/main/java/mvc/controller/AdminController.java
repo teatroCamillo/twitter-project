@@ -30,7 +30,7 @@ public class AdminController {
      */
     @PostMapping("/addadmin")
     public String addNewAdmin(@ModelAttribute AdminDTO adminDTO){
-        adminService.addAdmin(adminDTO);
+        adminService.addAdminS(adminDTO);
         return "admin-success";
     }
 
@@ -39,7 +39,7 @@ public class AdminController {
      */
     @GetMapping("/admins")
     public ModelAndView getAllAdmins(){
-        List<AdminDTO> adminDTOList = adminService.getAllAdmins();
+        List<AdminDTO> adminDTOList = adminService.getAllAdminsS();
         return new ModelAndView("admins","adminList", adminDTOList);
     }
 
@@ -48,7 +48,7 @@ public class AdminController {
      */
     @PostMapping("/deleteadmin")
     public String deleteAdmin(@ModelAttribute AdminDTO adminDTO){
-        adminService.deleteAdminById(adminDTO.getId());
+        adminService.deleteAdminByIdS(adminDTO.getId());
         return "home";
     }
 }

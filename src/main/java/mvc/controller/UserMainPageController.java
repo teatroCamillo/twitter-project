@@ -18,25 +18,28 @@ public class UserMainPageController {
     private UserService userService;
 
     /**
-     * Returns /user-page by GET method.
+     * Returns /home by GET method.
      */
-    @GetMapping("/user-page")
+    @GetMapping("/home")
     public ModelAndView getUserPage(){
         return new ModelAndView("home");
     }
 
     /**
-     * Returns list of users with the login search by POST method.
+     * Returns list of users on home page with the login search by POST method.
      */
     @PostMapping("/find-user-by-login")
     public ModelAndView findUserByLogin(String login) {
-        List<UserDTO> listUsersByLogin = userService.findByLogin(login);
+        List<UserDTO> listUsersByLogin = userService.findByLoginS(login);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
         mv.addObject("listUsersByLogin", listUsersByLogin);
         return mv;
     }
 
+    /**
+     * Call whoFollowS method and return home page.
+     */
     @PostMapping("/follow")
     public ModelAndView letsFollow(@RequestParam(name = "id") Integer id){
         userService.whoFollowS(id);

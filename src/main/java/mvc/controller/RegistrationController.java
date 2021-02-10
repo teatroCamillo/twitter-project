@@ -28,7 +28,7 @@ public class RegistrationController {
      */
     @PostMapping("/registration")
     public ModelAndView addUser(@ModelAttribute UserDTO userDTO){
-        userService.create(userDTO);
+        userService.createS(userDTO);
         return new ModelAndView("successful-registration");
     }
 }

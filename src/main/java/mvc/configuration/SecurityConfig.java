@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/user-page", "/follow").hasAuthority("USER")
+                    .antMatchers(HttpMethod.GET, "/home", "/follow").hasAuthority("USER")
                     .antMatchers("/addadmin","/admins","/admin-success")
                         .hasAnyAuthority("ADMIN")
                     .and()
@@ -38,14 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                     .formLogin()
                         .loginPage("/login")
-                        .defaultSuccessUrl("/user-page")
+                        .defaultSuccessUrl("/home")
                         .and()
                     .logout()
                         .deleteCookies("JSESSIONID");
     }
-
     /**
-     * Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding UserDetailsService,      * and adding AuthenticationProvider's.
+     * Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding  UserDetailsService,      * and adding AuthenticationProvider's.
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{

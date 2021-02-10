@@ -23,7 +23,7 @@ public class UserService {
     /**
      * Returns the entire list of mapped users from User to UserDTO.
      */
-    public List<UserDTO> getAllUsers() {
+    public List<UserDTO> getAllUsersS() {
         return userRepository
                 .findAll()
                 .stream()
@@ -34,7 +34,7 @@ public class UserService {
     /**
      * Returns list of mapped users by search @param login.
      */
-    public List<UserDTO> findByLogin(String login) {
+    public List<UserDTO> findByLoginS(String login) {
         return userRepository
                 .findAll()
                 .stream()
@@ -46,19 +46,25 @@ public class UserService {
     /**
      * Sets role for user, maps it to User & stores in database.
      */
-    public User create(UserDTO userDTO){
+    public User createS(UserDTO userDTO){
         userDTO.setRole("USER");
         User user = modelMapper.map(userDTO, User.class);
         return userRepository.save(user);
     }
 
-    public Integer getCurrentUserIdByQuery(){
+    /**
+     * Return actual logged User userId.
+     */
+    public Integer getCurrentUserIdByQueryS(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return userRepository.getActualUserId(auth.getName(), auth.getCredentials().toString());
     }
 
+    /**
+     * Saves record in db who is following and who is follower.
+     */
     public void whoFollowS(Integer followingId){
-        userRepository.whoFollow(followingId, getCurrentUserIdByQuery());
+        userRepository.whoFollow(followingId, getCurrentUserIdByQueryS());
     }
 
 }
